@@ -23,7 +23,7 @@ export default  (props) => {
       
       //  const newTodos = [...this.state.todos];
       dispatch({type: "COMPLETED",payload: todo })
-    
+    g
       
       }
        
