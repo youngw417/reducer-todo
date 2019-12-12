@@ -18,9 +18,10 @@ function Todo({todo}) {
     
     return (
         <div>
+        { (todo.item) &&
           <p onClick = {handleClick} className ={todo.completed && 'completed' }>
-              {todo.item} {':'} {Date(todo.id).toString().substring(0,15)}
-         </p>  
+         {todo.item} {':'} {Date(todo.id).toString().substring(0,15)}
+         </p>  }
         </div>
     )
 }

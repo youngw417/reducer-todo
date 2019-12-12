@@ -4,7 +4,7 @@ import TodoContext from '../context/todoContext';
 export default () => {
     const todoContext = useContext(TodoContext);
 
-    const { addTodo, deleteTodo } = todoContext;
+    const { addTodo, deleteTodo, saveData, getData } = todoContext;
 
     const [task, setTask] = useState('');
         
@@ -22,19 +22,21 @@ export default () => {
           
     }
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.preventDefault();
         deleteTodo();
 
     }
 
-    // const handleClicktoSave = () => {
-    //     this.props.saveData();
+    const handleClicktoSave = (e) => {
+        e.preventDefault();
+        saveData();
        
-    // }
-    // handleClicktoRetrieve = () => {
-    //     this.props.getData();
+    }
+    const handleClicktoRetrieve = () => {
+        getData();
        
-    // }
+    }
 
 
         return (
@@ -46,10 +48,10 @@ export default () => {
                             <button className="add" type='submit'>Add todo</button>
                             <button className="clear" onClick = {handleClick}>Clear Completed</button>
                         </div>
-                        {/* <div className="btnDiv">
-                            <button className="save" onClick = {this.handleClicktoSave}>Save my todos</button>
-                        <button className="retrieve" onClick = {this.handleClicktoRetrieve}>Get my todos</button>
-                        </div> */}
+                        <div className="btnDiv">
+                            <button className="save" onClick = {handleClicktoSave}>Save my todos</button>
+                        <button className="retrieve" onClick = {handleClicktoRetrieve}>Get my todos</button>
+                        </div>
                         
                     </div>
                 </form>

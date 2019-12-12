@@ -23,7 +23,7 @@ export default  (props) => {
       
       //  const newTodos = [...this.state.todos];
       dispatch({type: "COMPLETED",payload: todo })
-    g
+    
       
       }
        
@@ -32,22 +32,24 @@ export default  (props) => {
       
        // clear completed
       const deleteTodo = () => {
-      
+
         dispatch({type: "DELETE_TODO"})
        
       };
       
-    //   saveData = () => {
-    //       window.localStorage.setItem('todos', JSON.stringify(this.state.todos));
+      const saveData = () => {
+        window.localStorage.setItem('todos', JSON.stringify(state));
+    
           
-    //   }
+      }
       
-    //   getData = () => {
+      const getData = () => {
         
-    //     const dataRetrieved = JSON.parse(window.localStorage.getItem('todos'));
-    //     this.setState({
-    //       todos: dataRetrieved});
-    //   }
+
+        const dataRetrieved = JSON.parse(window.localStorage.getItem('todos'));
+        dispatch({type: "GET_DATA", payload: dataRetrieved})
+        
+      }
       
 
 
@@ -56,7 +58,9 @@ export default  (props) => {
             todos: state.todos,
             addTodo,
             todoCompleted,
-            deleteTodo
+            deleteTodo,
+            saveData,
+            getData,
 
         }}>
             {props.children}

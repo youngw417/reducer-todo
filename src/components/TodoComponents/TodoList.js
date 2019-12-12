@@ -12,7 +12,7 @@ function TodoList( ) {
 
     const { todos } = todoContext;
     // const [myCom, setMycom] = useState();
-
+    console.log('todos', todos);
     // const completedItems = (another) => {
        
     //     // setMycom(another)
@@ -39,6 +39,7 @@ function TodoList( ) {
                 todos.map(todo => (
                     
                     <Todo key = {todo.id} todo={todo} />
+
                 )
                     )
             }

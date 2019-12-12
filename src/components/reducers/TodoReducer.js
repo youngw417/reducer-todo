@@ -1,11 +1,13 @@
 
-export const initialState = { todos:[{
+export const initialState = { todos:[
+//     {
     
-    item: 'Learn about reducers',
-    completed: false,
-    id: 3892987589
+//     item: 'Learn about reducers',
+//     completed: false,
+//     id: 3892987589
 
-}] }
+// }
+] }
 
 
 
@@ -24,18 +26,24 @@ export const todoReducer = (state, action) => {
         
             ]}
     case "COMPLETED":
-            return {
-                todos: [state.todos.map(each => {
-                    if (each.id === action.payload.id)
+            return ({
+               todos: state.todos.map(each => {
+                    if (each.id === action.payload.id) 
                         return {...each, completed: !each.completed}
                     else return each
-                })
-                ] }
 
+
+                })
+            })
+            
     case "DELETE_TODO":
         return {
          todos: state.todos.filter(each => !each.completed)}
 
+    case "GET_DATA":
+        return action.payload
+    
+    
     default:
             return state;
     }
